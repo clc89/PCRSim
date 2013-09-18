@@ -2,7 +2,9 @@ from random import randrange
 
 class RandomDna(object):
     
-    #returns both dna strands
+    # returns both dna strands.
+    # the second strand is the reverse complement
+    # of of the first strand.
     def randDna(self, length):
         n=length
         base=['A','T','C','G']
@@ -11,10 +13,10 @@ class RandomDna(object):
         for x in xrange(n):
             firstStrand=firstStrand+base[randrange(4)]
         #print firstStrand
-        secondStrand=firstStrand.replace('A','U')
-        secondStrand=secondStrand.replace('T','A')
+        secondStrand=firstStrand.replace('A','t')
+        secondStrand=secondStrand.replace('T','a')
         secondStrand=secondStrand.replace('C','g')
-        secondStrand=secondStrand.replace('G','C')
+        secondStrand=secondStrand.replace('G','c')
         secondStrand=secondStrand.upper()
         #print secondStrand
         dna[0]=firstStrand
@@ -22,6 +24,8 @@ class RandomDna(object):
         
         return dna
     
+    #TODO - write code to select a random primer
+    #       based off of the length and the dna template given.
     def randPrimer(self, dna, length):
         return "testPrimer"
 

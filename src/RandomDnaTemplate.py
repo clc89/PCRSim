@@ -26,10 +26,10 @@ class RandomDna(object):
         primer = [0,0]
         start = randrange(len(dna[0])-sLength)      
         segment = dna[0][start: start+sLength]
-        print "starting index of segment: ",start
-        print "segment:",segment
-        print "        ",self.reverseComplement(segment)
-        print "expected size:",sLength, " actual size:", len(segment)
+        #print "starting index of segment: ",start
+        #print "segment:",segment
+        #print "        ",self.reverseComplement(segment)
+        #print "expected size:",sLength, " actual size:", len(segment)
         fPrimer = segment[0: pLength]
         rPrimer = segment[len(segment)-pLength: len(segment)]
         primer[0] = fPrimer

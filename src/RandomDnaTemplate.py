@@ -22,12 +22,16 @@ class RandomDna(object):
     
     # select a random primer
     # based off of the length and the dna template given.
-    def randPrimer(self, dna, length):
-        start = randrange(length)
+    def randPrimer(self, dna, pLength, sLength):
         primer = [0,0]
-        primer[0] = dna[0][start:start+length]
-        primer[1] = self.reverseComplement(primer[0])
-        
+        start = randrange(len(dna[0])-sLength)      
+        segment = dna[0][start: start+sLength]
+        print "starting index of segment: ",start
+        print "segment: ",segment
+        fPrimer = segment[0: pLength]
+        rPrimer = segment[len(segment)-pLength: len(segment)]
+        primer[0] = fPrimer
+        primer[1] = self.reverseComplement(rPrimer)
         return primer
     
     
@@ -38,7 +42,7 @@ class RandomDna(object):
         secondStrand=secondStrand.replace('C','g')
         secondStrand=secondStrand.replace('G','c')
         secondStrand=secondStrand.upper()
-        secondStrand = secondStrand[::-1] 
+        #secondStrand = secondStrand[::-1] 
                
         return secondStrand
 

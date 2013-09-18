@@ -21,13 +21,15 @@ class RandomDna(object):
         return dna
     
     # select a random primer
-    # based off of the length and the dna template given.
+    # based off of the length and the dna template.
     def randPrimer(self, dna, pLength, sLength):
         primer = [0,0]
         start = randrange(len(dna[0])-sLength)      
         segment = dna[0][start: start+sLength]
         print "starting index of segment: ",start
-        print "segment: ",segment
+        print "segment:",segment
+        print "        ",self.reverseComplement(segment)
+        print "expected size:",sLength, " actual size:", len(segment)
         fPrimer = segment[0: pLength]
         rPrimer = segment[len(segment)-pLength: len(segment)]
         primer[0] = fPrimer

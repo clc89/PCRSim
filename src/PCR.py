@@ -1,18 +1,20 @@
 from RandomDnaTemplate import RandomDna
 
-segmentSize = 200
+segmentSize = 100
 cycles = 1
 dropOffRate = 0
-generatedDna = []
 primerSize = 20
-dna = RandomDna().randDna(2000)
-primer = RandomDna().randPrimer(dna, primerSize, segmentSize)
+dnaTemplateSize=750
 
+dna = RandomDna().randDna(dnaTemplateSize)
+primer = RandomDna().randPrimer(dna, primerSize, segmentSize)
+generatedDna = []
 
 i = 1;
 while i <= cycles:
     #print "cycle number: ", i
     i+=1
+
 
 p1 = dna[0].index(primer[0])-1
 print " "*p1, "5'", primer[0],"3'"

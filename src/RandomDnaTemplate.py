@@ -36,7 +36,11 @@ class RandomDna(object):
         primer[1] = self.reverseComplement(rPrimer)
         return primer
     
-    
+    def pcrCycle(dna,segment):
+        firstCopy = [dna[0],segment[1]]
+        secondCopy = [segment[0],dna[1]]
+        copies = [firstCopy,secondCopy]
+        return copies
     
     def reverseComplement(self, dna):
         secondStrand=dna.replace('A','t')

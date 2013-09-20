@@ -55,7 +55,7 @@ class RandomDna(object):
     def GCcontent(dna):
         G = dna.count('G')
         C = dna.count('C')
-        GC = float(G + C)/len(dna)
+        GC = ((float(G + C)/len(dna)*100))
         return GC
         
     

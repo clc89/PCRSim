@@ -51,5 +51,14 @@ class RandomDna(object):
         #secondStrand = secondStrand[::-1] 
                
         return secondStrand
+        
+    def GCcontent(dna):
+        G = dna.count('G')
+        C = dna.count('C')
+        GC = float(G + C)/len(dna)
+        return GC
+        
+    
+        
 
 

@@ -2,15 +2,15 @@ from RandomDnaTemplate import RandomDna
 
 segmentSize = 200
 cycles = 5
-dropOffRate = 0
+dropOffRate = 50
 primerSize = 20
 dnaTemplateSize=2000
 segment=[0,0]
 dna = RandomDna().randDna(dnaTemplateSize)
 primer = RandomDna().randPrimer(dna, primerSize, segmentSize)
 generatedDna = [dna]
-
-
+avgLength=0
+avgGC=0
 
 p1 = dna[0].index(primer[0])-1
 print " "*p1, "5'", primer[0],"3'"
@@ -33,3 +33,16 @@ for x in xrange(cycles):
     generatedDna.remove(toProcess)
 print "total DNA fragments:"
 print len(generatedDna)
+print "average length:"
+for x in xrange(len(generatedDna)):
+  thisStrand=generatedDna[x]
+  avgLength+=len(thisStrand[0])
+  avgLength+=len(thisStrand[1])
+  #print avgLength
+  avgGC+=RandomDna.GCcontent(thisStrand[0])
+  avgGC+=RandomDna.GCcontent(thisStrand[1])
+avgLength=avgLength/len(generatedDna)
+avgGC=avgGC/len(generatedDna)
+print avgLength
+print "GC content:"
+print avgGC

@@ -52,13 +52,23 @@ class RandomDna(object):
                
         return secondStrand
         
-    def GCcontent(dna):
+    def GCcontent(self,dna):
         G = dna.count('G')
         C = dna.count('C')
         GC = ((float(G + C)/len(dna)*100))
         return GC
         
-    
-        
-
+    #Takes a strand, dropOffRate, and relative location (top or bottom strand)
+    def processivity(self, strand, DoR, loc, minLength):
+        x=randrange(DoR)
+        if (loc==0):
+          if len(strand[: len(strand)-x])>minLength:
+            return strand[: len(strand)-x]
+          else:
+            return strand[: minLength]
+        else:
+          if len(strand[x:])>minLength:
+            return strand[x: ]
+          else: 
+            return strand[(len(strand)-minLength):]
 
